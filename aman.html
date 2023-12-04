@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add and Square</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #result {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #image-container {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Add and Square</h1>
+
+  <label for="num1">Enter the first number:</label>
+  <input type="number" id="num1">
+
+  <label for="num2">Enter the second number:</label>
+  <input type="number" id="num2">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="result"></div>
+
+  <div id="image-container">
+    <img id="result-image" alt="Result Image">
+  </div>
+
+  <script>
+    function calculate() {
+      // Get input values
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+
+      // Check if both inputs are valid numbers
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      // Perform calculations
+      var sum = num1 + num2;
+      var square = sum * sum;
+
+      // Display result
+      document.getElementById('result').innerText = The square of the sum is: ${square};
+
+      // Display image based on the result
+      displayImage(square);
+    }
+
+    function displayImage(result) {
+      var imageContainer = document.getElementById('image-container');
+      var resultImage = document.getElementById('result-image');
+
+      // Set image source based on the result
+      if (result % 2 === 0) {
+        resultImage.src = 'https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/5f/e8/5f/5fe85fa1-07d0-d1a0-a9df-57ee0ade202b/source/512x512bb.jpg'
+      } else {
+        resultImage.src = 'https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/5f/e8/5f/5fe85fa1-07d0-d1a0-a9df-57ee0ade202b/source/512x512bb.jpg'
+      }
+
+      // Display the image container
+      imageContainer.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
